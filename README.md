@@ -1,4 +1,4 @@
-# sink
+# About
 
 Sink is a very simple backup tool. It relies on symbolic links to track
 files and directories on you system. Then it uses rsync to save
