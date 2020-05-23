@@ -24,6 +24,7 @@ date
 echo "saving to $backup_dest"
 echo "backup STARTING"
 
-rsync -a -L tracking/ data_backup_dest
+rsync -avzL tracking/ data_backup_dest
 
-printf "backup FINISHED\n\n"
+echo "backup FINISHED"
+printf "______________\n\n\n"
