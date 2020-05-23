@@ -12,22 +12,22 @@ will reside on network attached storage or an external hard drive.
 # Usage
 
 Make a directory on you backup destination.
-    * `mkdir /Volumes/user/auto-backups`
+* `mkdir /Volumes/user/auto-backups`
 
 Create a link to that directory.
-    * `./backup-to /Volumes/user/auto-backups`
+* `./backup-to /Volumes/user/auto-backups`
 
 You can place files the tracking directory.
-    * `mv ~/Downloads/bookmarks.html tracking`
+* `mv ~/Downloads/bookmarks.html tracking`
 
 Or create a link in tracking to a file or directory.
-    * `./start-tracking ~/Documents`
+* `./start-tracking ~/Documents`
 
 Then backup the data being tracked to its destination.
-    * `./sink`
+* `./sink`
 
 You can also check logs from the backup process.
-    * `less history.log`
+* `less history.log`
 
 
 ## Tips
@@ -48,4 +48,5 @@ A simplier way to automate backups might be to run sink at login with .profile.
 Better yet, you could run sink 20 minutes after login.
 This gives time for startup processes to finish and
 for connecting to network storage.
-    * `sinklater() { sleep 1200; ~/repos/sink/sink; } sinklater &`
+
+* `sinklater() { sleep 1200; ~/repos/sink/sink; } sinklater &`
