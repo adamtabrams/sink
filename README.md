@@ -12,7 +12,7 @@ will reside on network attached storage or an external hard drive.
 # Usage
 
 Make a directory on you backup destination.
-* `mkdir /Volumes/user/auto-backups`
+* `mkdir /Volumes/user/auto-backup`
 
 Create a link to that directory.
 * `./backup-to /Volumes/user/auto-backups`
