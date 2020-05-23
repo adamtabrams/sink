@@ -1,0 +1,29 @@
+#!/bin/sh
+
+exec >> history.log
+exec 2>&1
+
+[ ! -L data_backup_dest ] &&
+    echo "ERROR: data_backup_dest link doesn't exists" &&
+    printf "backup ABORTING\n\n" &&
+    exit 1
+
+backup_dest=$(readlink data_backup_dest)
+
+[ ! -d "$backup_dest" ] &&
+    echo "ERROR: the dir data_backup_dest points to doesn't exists" &&
+    printf "backup ABORTING\n\n" &&
+    exit 1
+
+[ ! -d tracking ] &&
+    echo "ERROR: the tracking dir doesn't exists" &&
+    printf "backup ABORTING\n\n" &&
+    exit 1
+
+date
+echo "saving to $backup_dest"
+echo "backup STARTING"
+
+rsync -a -L tracking/ data_backup_dest
+
+printf "backup FINISHED\n\n"
