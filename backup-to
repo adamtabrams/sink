@@ -1,0 +1,27 @@
+#!/bin/sh
+
+usage() {
+    echo "usage: $0 backup_dir"
+    echo ""
+    echo "backup_dir"
+    echo "    the path to an existing directory for backups of data to be stored"
+
+}
+
+[ ! "$1" ] && usage >&2 && exit 1
+[ "$1" = "-h" ] && usage && exit 0
+[ "$1" = "--help" ] && usage && exit 0
+
+backup_dir=$1
+
+[ ! -d "$backup_dir" ] &&
+    echo "ERROR: that path doesn't lead to an existing directory" >&2 &&
+    exit 1
+
+[ "$(echo "$backup_dir" | cut -c 1)" != / ] &&
+    echo "ERROR: you must give an absolute path to the directory" >&2 &&
+    exit 1
+
+ln -sFhi "$backup_dir" data_backup_dest
+
+echo "SUCCESS: a link to your backup directory has been created" >&2
