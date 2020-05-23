@@ -49,4 +49,4 @@ Better yet, you could run sink 20 minutes after login.
 This gives time for startup processes to finish and
 for connecting to network storage.
 
-* `sinklater() { sleep 1200; ~/repos/sink/sink; } sinklater &`
+* `sinklater() { sleep 1200; ~/repos/sink/sink; }; sinklater &`
