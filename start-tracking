@@ -8,9 +8,9 @@ usage() {
 
 }
 
-[ ! "$1" ] && usage >&2 && exit 1
-[ "$1" = "-h" ] && usage && exit 0
-[ "$1" = "--help" ] && usage && exit 0
+[ ! "$1" ] && { usage >&2; exit 1; }
+[ "$1" = "-h" ] && { usage; exit 0; }
+[ "$1" = "--help" ] && { usage; exit 0; }
 
 data_path=$1
 data_name=$(echo "$data_path" | xargs basename)
@@ -19,7 +19,7 @@ data_name=$(echo "$data_path" | xargs basename)
     echo "ERROR: the data you're trying trying to track does not exist" >&2 &&
     exit 1
 
-[ "$(echo "$data_path" | cut -c 1)" != / ] &&
+[ "${data_path%%/*}" ] &&
     echo "ERROR: you must give an absolute path to the file or directory" >&2 &&
     exit 1
 

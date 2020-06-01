@@ -8,9 +8,9 @@ usage() {
 
 }
 
-[ ! "$1" ] && usage >&2 && exit 1
-[ "$1" = "-h" ] && usage && exit 0
-[ "$1" = "--help" ] && usage && exit 0
+[ ! "$1" ] && { usage >&2; exit 1; }
+[ "$1" = "-h" ] && { usage; exit 0; }
+[ "$1" = "--help" ] && { usage; exit 0; }
 
 backup_dir=$1
 
@@ -18,7 +18,7 @@ backup_dir=$1
     echo "ERROR: that path doesn't lead to an existing directory" >&2 &&
     exit 1
 
-[ "$(echo "$backup_dir" | cut -c 1)" != / ] &&
+[ "${backup_dir%%/*}" ] &&
     echo "ERROR: you must give an absolute path to the directory" >&2 &&
     exit 1
 

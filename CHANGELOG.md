@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.5] - 2020-06-01
+### Fixed
+- Slightly improvements to control flow for some error cases.
+- More efficient way of checking if paths are absolute.
+
+### Added
+- Created a changelog for the project.
+
 ## [0.3.4] - 2020-05-26
 ### Fixed
 - Because of the target OS, deltas weren't computed correctly.
@@ -24,7 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.3.1] - 2020-05-23
 ### Added
-- The directory for files and directores being tracked from backup.
+- The directory for files and directories being tracked from backup.
 - A basic README for the project.
 
 ## [0.3.0] - 2020-05-23
@@ -39,7 +47,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Created proof of concept file backup tool.
 
-[Unreleased]: https://github.com/adamtabrams/sink/compare/0.3.4...HEAD
+[Unreleased]: https://github.com/adamtabrams/sink/compare/0.3.5...HEAD
+[0.3.5]: https://github.com/adamtabrams/sink/compare/0.3.4...0.3.5
 [0.3.4]: https://github.com/adamtabrams/sink/compare/0.3.3...0.3.4
 [0.3.3]: https://github.com/adamtabrams/sink/compare/0.3.2...0.3.3
 [0.3.2]: https://github.com/adamtabrams/sink/compare/0.3.1...0.3.2
