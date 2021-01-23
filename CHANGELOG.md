@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2021-01-22
+### Added
+- Sink now prints to stdout and appends to history.log so you can see the progress.
+
 ## [0.3.5] - 2020-06-01
 ### Fixed
 - Slightly improvements to control flow for some error cases.
@@ -47,7 +51,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Created proof of concept file backup tool.
 
-[Unreleased]: https://github.com/adamtabrams/sink/compare/0.3.5...HEAD
+[Unreleased]: https://github.com/adamtabrams/sink/compare/0.4.0...HEAD
+[0.4.0]: https://github.com/adamtabrams/sink/compare/0.3.5...0.4.0
 [0.3.5]: https://github.com/adamtabrams/sink/compare/0.3.4...0.3.5
 [0.3.4]: https://github.com/adamtabrams/sink/compare/0.3.3...0.3.4
 [0.3.3]: https://github.com/adamtabrams/sink/compare/0.3.2...0.3.3

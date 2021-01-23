@@ -1,15 +1,29 @@
 #!/bin/sh
 
-exec >> history.log
-exec 2>&1
-
 endlog() {
     echo "$1"
-    printf "______________\n\n\n"
+    echo "______________"
+}
+
+Backup() {
+    echo
+    echo
+    date
+    echo "saving to $backup_dest"
+    echo "backup STARTING"
+
+    rsync -aczLvh --del tracking/ data_backup_dest
+
+    endlog "backup FINISHED"
 }
 
 [ ! -L data_backup_dest ] &&
     echo "ERROR: data_backup_dest link doesn't exists" &&
+    endlog "backup ABORTING" &&
+    exit 1
+
+[ ! -d tracking ] &&
+    echo "ERROR: the tracking dir doesn't exists" &&
     endlog "backup ABORTING" &&
     exit 1
 
@@ -20,15 +34,4 @@ backup_dest=$(readlink data_backup_dest)
     endlog "backup ABORTING" &&
     exit 1
 
-[ ! -d tracking ] &&
-    echo "ERROR: the tracking dir doesn't exists" &&
-    endlog "backup ABORTING" &&
-    exit 1
-
-date
-echo "saving to $backup_dest"
-echo "backup STARTING"
-
-rsync -aczLvh --del tracking/ data_backup_dest
-
-endlog "backup FINISHED"
+Backup 2>&1 | tee -a "history.log"
