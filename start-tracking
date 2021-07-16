@@ -26,6 +26,5 @@ data_name=$(echo "$data_path" | xargs basename)
 [ -L "tracking/$data_name" ] &&
     echo "ERROR: you're already tracking a file or directory with that name" >&2
 
-ln -sFhi "$data_path" "tracking/$data_name"
-
-echo "SUCCESS: that data is now being tracked" >&2
+ln -sFhi "$data_path" "tracking/$data_name" &&
+    echo "SUCCESS: that data is now being tracked" >&2
