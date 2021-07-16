@@ -12,7 +12,7 @@ Backup() {
     echo "saving to $backup_dest"
     echo "backup STARTING"
 
-    rsync -aczLvh --del tracking/ data_backup_dest
+    rsync -aczLvh --del --exclude=.gitignore tracking/ data_backup_dest
 
     endlog "backup FINISHED"
 }
