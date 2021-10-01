@@ -2,10 +2,15 @@
 
 usage() {
     echo "usage: $0 path"
-    echo ""
+    echo
     echo "path"
     echo "    the path to an existing file or directory to track for backups"
 
+}
+
+fatal() {
+    echo "$*" >&2
+    exit 1
 }
 
 [ ! "$1" ] && { usage >&2; exit 1; }
@@ -16,15 +21,13 @@ data_path=$1
 data_name=$(echo "$data_path" | xargs basename)
 
 [ ! -e "$data_path" ] &&
-    echo "ERROR: the data you're trying trying to track does not exist" >&2 &&
-    exit 1
+    fatal "ERROR: that path does not exist"
 
 [ "${data_path%%/*}" ] &&
-    echo "ERROR: you must give an absolute path to the file or directory" >&2 &&
-    exit 1
+    fatal "ERROR: must give the absolute path to the data"
 
 [ -L "tracking/$data_name" ] &&
-    echo "ERROR: you're already tracking a file or directory with that name" >&2
+    fatal "ERROR: there is already file or directory with that name in tracking"
 
 ln -sFhi "$data_path" "tracking/$data_name" &&
     echo "SUCCESS: that data is now being tracked" >&2
